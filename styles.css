@@ -443,6 +443,62 @@ a {
   font-size: 1.08rem;
 }
 
+.team_section {
+  padding: 9rem 0;
+  background: var(--basalt);
+  color: var(--warm_white);
+}
+
+.team_layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem 6rem;
+}
+
+.team_heading h2 {
+  max-width: 620px;
+  font-size: clamp(2.7rem, 5vw, 4.8rem);
+}
+
+.team_story {
+  border-top: 1px solid rgba(247, 243, 236, 0.2);
+}
+
+.team_block {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(247, 243, 236, 0.2);
+}
+
+.team_block h3,
+.team_block p {
+  margin: 0;
+}
+
+.team_block h3 {
+  color: #ef9b76;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.team_block p {
+  color: rgba(247, 243, 236, 0.78);
+}
+
+.team_standard {
+  grid-column: 2;
+  max-width: 760px;
+  margin: 2rem 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(247, 243, 236, 0.2);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 650;
+  line-height: 1.4;
+}
+
 .control_section {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -632,10 +688,15 @@ a {
 
   .problem_section,
   .section_intro,
+  .team_layout,
   .control_section,
   .contact_section {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .team_standard {
+    grid-column: 1;
   }
 
   .dark_intro > p:last-child {
@@ -736,6 +797,7 @@ a {
   .problem_section,
   .work_section,
   .method_section,
+  .team_section,
   .control_section {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -781,6 +843,15 @@ a {
 
   .focus_panel {
     width: min(calc(100% - 2rem), var(--max));
+  }
+
+  .team_block {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .team_standard {
+    grid-column: 1;
   }
 
   .contact_section {
