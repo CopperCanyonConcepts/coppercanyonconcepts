@@ -215,6 +215,29 @@ class SiteContentTests(unittest.TestCase):
         self.assertGreaterEqual(contrast_ratio("#8f3d24", "#f7f3ec"), 3)
         self.assertGreaterEqual(contrast_ratio("#ffffff", "#101a22"), 3)
 
+    def test_homepage_uses_compact_desktop_spacing_and_wider_content(self):
+        self.assertIn("--max: 1380px;", STYLES)
+        self.assertIn("min-height: min(760px, 90svh);", STYLES)
+        self.assertIn("grid-template-columns: 0.55fr 1.45fr;", STYLES)
+        self.assertIn("padding-top: 5.5rem;", STYLES)
+        self.assertIn("padding-bottom: 5rem;", STYLES)
+        self.assertIn("padding: 6rem 0 3rem;", STYLES)
+        self.assertIn("min-height: 620px;", STYLES)
+
+    def test_services_use_two_column_desktop_and_single_column_mobile_grid(self):
+        self.assertIn(
+            ".service_rows {\n  display: grid;\n  grid-template-columns: 1fr 1fr;",
+            STYLES,
+        )
+        self.assertIn(
+            ".service_row {\n  display: grid;\n  grid-template-columns: 46px minmax(0, 1fr);",
+            STYLES,
+        )
+        self.assertRegex(
+            STYLES,
+            r'(?s)@media \(max-width: 900px\).*?\.service_rows \{\s*grid-template-columns: 1fr;',
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
