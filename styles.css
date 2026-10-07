@@ -10,6 +10,7 @@
   --ink: #172026;
   --muted: #59666c;
   --line: rgba(23, 32, 38, 0.16);
+  --control_line: #747474;
   --max: 1180px;
   --shadow: 0 18px 45px rgba(9, 18, 24, 0.16);
 }
@@ -215,6 +216,8 @@ a {
   text-decoration: none;
   font-size: 0.93rem;
   font-weight: 750;
+  border: 0;
+  cursor: pointer;
   transition: transform 160ms ease, background 160ms ease;
 }
 
@@ -223,12 +226,18 @@ a {
 }
 
 .button.primary {
-  background: var(--copper);
+  background: var(--copper_dark);
   color: #fff;
 }
 
 .button.primary:hover {
-  background: #db7049;
+  background: #8f3d24;
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .text_link {
@@ -689,7 +698,7 @@ a {
   grid-template-columns: 1.25fr 0.75fr;
   gap: 5rem;
   padding: 7rem max(1.5rem, calc((100% - var(--max)) / 2));
-  background: var(--copper);
+  background: var(--copper_dark);
   color: #fff;
 }
 
@@ -780,6 +789,312 @@ a {
   background: var(--paper);
 }
 
+.contact_page {
+  background: var(--paper);
+}
+
+.contact_page .eyebrow,
+.contact_page .section_label {
+  color: var(--copper_dark);
+}
+
+.contact_main {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
+  gap: 5rem;
+  width: min(calc(100% - 3rem), var(--max));
+  margin: 0 auto;
+  padding: 7rem 0 8rem;
+}
+
+.contact_intro h1 {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.contact_lead {
+  max-width: 650px;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.contact_jump {
+  margin-top: 1.5rem;
+}
+
+.contact_expectations {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.contact_expectations h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.contact_expectations ol {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact_expectations li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0.8rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.contact_expectations li span {
+  color: var(--copper_dark);
+  font-weight: 800;
+}
+
+.contact_privacy_note {
+  margin-top: 2rem;
+  padding: 1.4rem;
+  border-left: 4px solid var(--copper);
+  background: rgba(201, 99, 59, 0.08);
+}
+
+.contact_privacy_note p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.inquiry_panel {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--control_line);
+  background: var(--warm_white);
+  box-shadow: var(--shadow);
+}
+
+.inquiry_heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.inquiry_heading > p:last-child {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+#inquiry-form {
+  margin-top: 2.5rem;
+}
+
+.form_grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.form_grid.two_columns {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form_grid + .form_grid,
+.form_grid + .field_group,
+.field_group + .field_group,
+.field_group + .safety_confirmation,
+.safety_confirmation + .form_actions {
+  margin-top: 1.4rem;
+}
+
+.field_group {
+  min-width: 0;
+}
+
+.field_group label,
+.field_group legend {
+  display: block;
+  margin: 0 0 0.45rem;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.required_text {
+  margin-left: 0.35rem;
+  color: var(--copper_dark);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.field_group input,
+.field_group select,
+.field_group textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.78rem 0.85rem;
+  border: 1px solid var(--control_line);
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.field_group textarea {
+  resize: vertical;
+}
+
+.field_group input:focus,
+.field_group select:focus,
+.field_group textarea:focus {
+  border-color: var(--copper_dark);
+  outline: 3px solid var(--copper_dark);
+  outline-offset: 2px;
+}
+
+.checkbox_fieldset {
+  margin: 1.6rem 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.field_help {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.checkbox_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.checkbox_grid label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 46px;
+  margin: 0;
+  padding: 0.7rem;
+  border: 1px solid var(--control_line);
+  border-radius: 0.35rem;
+  background: #fff;
+  font-size: 0.88rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.checkbox_grid input,
+.safety_confirmation input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--copper_dark);
+}
+
+.field_error,
+.form_status {
+  margin: 0.7rem 0 0;
+  color: #8b321f;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.safety_confirmation {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--copper_dark);
+  border-radius: 0.35rem;
+  background: rgba(201, 99, 59, 0.07);
+  color: var(--muted);
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.safety_confirmation strong {
+  color: var(--ink);
+}
+
+.form_actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.form_handoff {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.copy_fallback {
+  margin-top: 1.4rem;
+  padding: 1.25rem;
+  border: 1px solid var(--copper_dark);
+  border-radius: 0.35rem;
+  background: #fff;
+}
+
+.copy_fallback h3,
+.copy_fallback p {
+  margin: 0;
+}
+
+.copy_fallback p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.copy_fallback label {
+  display: block;
+  margin: 1rem 0 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.copy_fallback textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--control_line);
+  border-radius: 0.35rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.86rem;
+  resize: vertical;
+}
+
+.copy_fallback .button {
+  margin-top: 0.8rem;
+}
+
+.email_fallback {
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.email_fallback a {
+  color: var(--copper_dark);
+  font-weight: 750;
+}
+
 .legal_header {
   position: relative;
   width: 100%;
@@ -839,8 +1154,9 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid #ef9b76;
-  outline-offset: 4px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #8f3d24;
 }
 
 @media (max-width: 900px) {
@@ -857,6 +1173,11 @@ a {
   .contact_section {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .contact_main {
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
 
   .team_standard {
@@ -908,6 +1229,25 @@ a {
 
   .site_header {
     width: min(calc(100% - 2rem), var(--max));
+  }
+
+  .contact_main {
+    width: min(calc(100% - 2rem), var(--max));
+    padding: 5rem 0;
+  }
+
+  .contact_intro h1 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .form_grid.two_columns,
+  .checkbox_grid,
+  .form_actions {
+    grid-template-columns: 1fr;
+  }
+
+  .inquiry_panel {
+    padding: 1.25rem;
   }
 
   .brand_words strong {

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tell Copper Canyon Concepts about the business issue, current tools, and result you need.">
+  <meta name="theme-color" content="#101a22">
+  <meta property="og:title" content="Contact Copper Canyon Concepts">
+  <meta property="og:description" content="Share the business, website, workflow, CRM, email, or marketing problem you want to solve.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://coppercanyonconcepts.com/contact.html">
+  <title>Contact | Copper Canyon Concepts</title>
+  <link rel="canonical" href="https://coppercanyonconcepts.com/contact.html">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="contact.js" defer></script>
+</head>
+<body class="contact_page">
+  <a class="skip_link" href="#main">Skip to main content</a>
+
+  <header class="site_header legal_header" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="Copper Canyon Concepts home">
+      <img src="assets/copper_canyon_mark.png" alt="" width="48" height="48">
+      <span class="brand_words">
+        <strong>Copper Canyon</strong>
+        <span>Concepts</span>
+      </span>
+    </a>
+    <nav class="nav_links" aria-label="Site navigation">
+      <a href="index.html#work">Services</a>
+      <a href="index.html#method">How we work</a>
+      <a class="nav_contact" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main class="contact_main" id="main">
+    <section class="contact_intro" aria-labelledby="contact_page_title">
+      <p class="eyebrow">Start with the problem</p>
+      <h1 id="contact_page_title">Tell us what needs to be solved.</h1>
+      <p class="contact_lead">Describe what you are trying to create, what is not working, and which tools are already part of the process. Copper Canyon Concepts will review whether we may be able to help.</p>
+      <a class="button primary contact_jump" href="#inquiry-form">Start the inquiry</a>
+
+      <div class="contact_expectations">
+        <h2>What happens next</h2>
+        <ol role="list">
+          <li><span>1</span> You prepare an inquiry using the form.</li>
+          <li><span>2</span> Your email app opens with the details organized for review.</li>
+          <li><span>3</span> You review the message and choose whether to send it.</li>
+          <li><span>4</span> Copper Canyon Concepts evaluates the problem and replies by email.</li>
+        </ol>
+      </div>
+
+      <aside class="contact_privacy_note">
+        <strong>Your information stays under your control.</strong>
+        <p>This page does not send your answers to a form vendor or store them on the website. Preparing the inquiry opens your email app so you can review the message before sending.</p>
+      </aside>
+    </section>
+
+    <section class="inquiry_panel" aria-labelledby="inquiry_title">
+      <div class="inquiry_heading">
+        <p class="section_label">Business inquiry</p>
+        <h2 id="inquiry_title">Help us understand the issue.</h2>
+        <p>Fields marked required must be completed before the inquiry can be prepared.</p>
+      </div>
+
+      <form id="inquiry-form" action="mailto:operations@coppercanyonconcepts.com" method="post" enctype="text/plain">
+        <noscript>
+          <p class="form_status">JavaScript is required to organize the structured inquiry. You can still email operations@coppercanyonconcepts.com directly.</p>
+        </noscript>
+        <div class="form_grid two_columns">
+          <div class="field_group">
+            <label for="contact_name">Your name <span aria-hidden="true">*</span></label>
+            <input id="contact_name" name="contact_name" type="text" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="field_group">
+            <label for="email">Work email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required>
+          </div>
+        </div>
+
+        <div class="form_grid two_columns">
+          <div class="field_group">
+            <label for="company">Company or business name</label>
+            <input id="company" name="company" type="text" autocomplete="organization" maxlength="140">
+          </div>
+          <div class="field_group">
+            <label for="business_stage">Business stage <span aria-hidden="true">*</span></label>
+            <select id="business_stage" name="business_stage" required>
+              <option value="">Choose one</option>
+              <option>Idea or concept</option>
+              <option>Starting a business</option>
+              <option>Existing business</option>
+              <option>Expanding or changing</option>
+              <option>Project within an organization</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset class="field_group checkbox_fieldset" aria-describedby="help-area-help help-area-error">
+          <legend>Where do you need help? <span class="required_text">Required</span></legend>
+          <p class="field_help" id="help-area-help">Select every area that may apply.</p>
+          <div class="checkbox_grid">
+            <label><input name="help_areas" type="checkbox" value="Business creation"> Business creation</label>
+            <label><input name="help_areas" type="checkbox" value="Website development"> Website development</label>
+            <label><input name="help_areas" type="checkbox" value="Project workflows"> Project workflows</label>
+            <label><input name="help_areas" type="checkbox" value="CRM integration"> CRM integration</label>
+            <label><input name="help_areas" type="checkbox" value="Email automation"> Email automation</label>
+            <label><input name="help_areas" type="checkbox" value="Marketing support"> Marketing support</label>
+            <label><input name="help_areas" type="checkbox" value="Other or unsure"> Other or unsure</label>
+          </div>
+          <p class="field_error" id="help-area-error" hidden>Please select at least one area.</p>
+        </fieldset>
+
+        <div class="field_group">
+          <label for="problem">What problem needs to be solved? <span aria-hidden="true">*</span></label>
+          <textarea id="problem" name="problem" rows="6" maxlength="1800" required placeholder="Describe what is happening today, where the process breaks down, or what you are trying to create."></textarea>
+        </div>
+
+        <div class="field_group">
+          <label for="current_tools">Which tools or systems do you use today?</label>
+          <textarea id="current_tools" name="current_tools" rows="4" maxlength="1000" placeholder="Examples may include a website platform, CRM, email service, spreadsheets, project tools, or manual processes."></textarea>
+        </div>
+
+        <div class="field_group">
+          <label for="desired_result">What would a useful result look like? <span aria-hidden="true">*</span></label>
+          <textarea id="desired_result" name="desired_result" rows="4" maxlength="1200" required placeholder="Explain what should be easier, clearer, faster, more professional, or better connected."></textarea>
+        </div>
+
+        <div class="field_group">
+          <label for="timeframe">Preferred timeframe</label>
+          <select id="timeframe" name="timeframe">
+            <option value="Not specified">Not specified</option>
+            <option>As soon as practical</option>
+            <option>Within 30 days</option>
+            <option>Within 60 to 90 days</option>
+            <option>Researching for later</option>
+          </select>
+        </div>
+
+        <label class="safety_confirmation">
+          <input name="safe_to_email" type="checkbox" required>
+          <span>I understand this inquiry will be sent through ordinary email. Do not include passwords, payment information, confidential customer records, health information, or other sensitive data. <strong>Required.</strong></span>
+        </label>
+
+        <div class="form_actions">
+          <button class="button primary" type="submit" disabled>Prepare my inquiry</button>
+          <p class="form_handoff">This opens your email app. Nothing is sent until you review and send the message.</p>
+        </div>
+        <p class="form_status" id="form-status" role="status" aria-live="polite"></p>
+
+        <div class="copy_fallback" id="copy-fallback" hidden>
+          <h3>Copy the prepared inquiry</h3>
+          <p>The details are too long for a reliable email link. Copy the prepared message, open your email app, and send it to operations@coppercanyonconcepts.com.</p>
+          <label for="prepared-inquiry">Prepared inquiry</label>
+          <textarea id="prepared-inquiry" rows="12" readonly></textarea>
+          <button class="button primary" id="copy-inquiry" type="button">Copy prepared inquiry</button>
+        </div>
+      </form>
+
+      <p class="email_fallback">Prefer to write directly? Email <a href="mailto:operations@coppercanyonconcepts.com">operations@coppercanyonconcepts.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site_footer legal_footer">
+    <div class="footer_brand">
+      <img src="assets/copper_canyon_mark.png" alt="" width="42" height="42">
+      <div>
+        <strong>Copper Canyon Concepts LLC</strong>
+        <p>Arizona, United States</p>
+      </div>
+    </div>
+    <div class="footer_links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://www.linkedin.com/company/copper-canyon-concepts/" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="copyright">© 2026 Copper Canyon Concepts LLC. All rights reserved.</p>
+  </footer>
+</body>
+</html>

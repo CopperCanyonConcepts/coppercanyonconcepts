@@ -9,7 +9,8 @@ Run a static server from this directory and open the displayed local address.
 ## Public pages
 
 1. Home
-2. Privacy
+2. Contact
+3. Privacy
 
 ## Publishing
 
