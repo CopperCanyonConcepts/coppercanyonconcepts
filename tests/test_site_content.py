@@ -71,22 +71,57 @@ class SiteContentTests(unittest.TestCase):
         self.assertIn("Problem Review and Solution Plan", INDEX)
         self.assertIn("A problem does not need to arrive with a technical specification", INDEX)
 
-    def test_homepage_shows_an_honest_closeout_to_invoice_sample(self):
-        self.assertIn('id="sample-workflow"', INDEX)
-        self.assertIn("Closeout to Invoice Readiness", INDEX)
-        self.assertIn("Illustrative sample, not client work", INDEX)
-        for stage in (
-            "Work marked complete",
-            "Required records checked",
-            "Missing items routed",
-            "Human approval recorded",
-            "Invoice ready packet prepared",
-            "Exceptions remain visible",
+    def test_homepage_omits_removed_banner_and_closeout_sample(self):
+        self.assertNotIn('class="principles"', INDEX)
+        self.assertNotIn('id="sample-workflow"', INDEX)
+        self.assertNotIn("Closeout to Invoice Readiness", INDEX)
+        for removed_phrase in (
+            "Start with the real problem",
+            "Build for practical use",
+            "Owners stay in control",
         ):
-            with self.subTest(stage=stage):
-                self.assertIn(stage, INDEX)
-        self.assertIn("Nothing is sent or approved automatically", INDEX)
-        self.assertIn("No savings or performance result is claimed", INDEX)
+            with self.subTest(removed_phrase=removed_phrase):
+                self.assertNotIn(removed_phrase, INDEX)
+
+    def test_solution_plan_is_short_and_scannable(self):
+        match = re.search(
+            r'<div class="pilot_deliverables">(.*?)</div>\s*</section>',
+            INDEX,
+            re.DOTALL,
+        )
+        if match is None:
+            self.fail("pilot deliverables section was not found")
+        deliverables = match.group(1)
+        self.assertEqual(deliverables.count("<li>"), 4)
+        for item in (
+            "Goal and problem definition",
+            "Current tools and constraints",
+            "Recommended solution and project phases",
+            "Scope, estimate, and proceed decision",
+        ):
+            with self.subTest(item=item):
+                self.assertIn(item, deliverables)
+
+    def test_ownership_section_is_compact_accountable_and_responsive(self):
+        self.assertIn("Experienced ownership. Accountable delivery.", INDEX)
+        self.assertIn("Operating leadership", INDEX)
+        self.assertIn("Owner accountability", INDEX)
+        self.assertIn(
+            "Human owners retain final authority over access, spending, publishing, and customer commitments.",
+            INDEX,
+        )
+        self.assertIn(
+            ".team_layout {\n  display: grid;\n  grid-template-columns: 1fr;",
+            STYLES,
+        )
+        self.assertIn(
+            ".team_story {\n  display: grid;\n  grid-template-columns: 1fr 1fr;",
+            STYLES,
+        )
+        self.assertRegex(
+            STYLES,
+            r'(?s)@media \(max-width: 620px\).*?\.team_story \{\s*grid-template-columns: 1fr;',
+        )
 
     def test_homepage_preserves_navigation_accessibility_and_privacy_boundaries(self):
         ids = set(re.findall(r'\bid="([^"]+)"', INDEX))
@@ -97,7 +132,7 @@ class SiteContentTests(unittest.TestCase):
         self.assertNotIn('<div class="pilot_deliverables" aria-label=', INDEX)
         self.assertRegex(
             INDEX,
-            r'<ol class="workflow_path"[^>]*role="list"',
+            r'<ol class="method_steps"[^>]*role="list"',
         )
         self.assertNotIn("<script", INDEX.lower())
         collector = TextCollector()
@@ -133,6 +168,7 @@ class SiteContentTests(unittest.TestCase):
         self.assertIn('id="prepared-inquiry"', CONTACT)
         self.assertIn('id="copy-inquiry"', CONTACT)
         self.assertIn('<span class="required_text">Required</span>', CONTACT)
+        self.assertIn('<a class="nav_contact" href="index.html">Main</a>', CONTACT)
         self.assertNotIn('aria-required="true"', CONTACT)
         self.assertNotIn('<div class="contact_expectations" aria-label=', CONTACT)
 
